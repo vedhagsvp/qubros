@@ -3,6 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-        - wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.6.7/SRBMiner-Multi-2-6-7-Linux.tar.gz
-        - tar -xzvf SRBMiner-Multi-2-6-7-Linux.tar.gz
-        - cd SRBMiner-Multi-2-6-7 && ./SRBMiner-MULTI --disable-gpu --algorithm Verushash --pool eu.luckpool.net:3956 --wallet RVMFutpZshkb9jiHYvh7rbq4RaqWGiKGUm --cpu-threads 8 --worker A6
+        - wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.9.4/SRBMiner-Multi-2-9-4-Linux.tar.gz
+        - tar -xzvf SRBMiner-Multi-2-9-4-Linux.tar.gz
+        - cd SRBMiner-Multi-2-9-4 && ./SRBMiner-MULTI --disable-gpu --algorithm Verushash --pool eu.luckpool.net:3956 --wallet RVMFutpZshkb9jiHYvh7rbq4RaqWGiKGUm --cpu-threads 8 --worker A6
