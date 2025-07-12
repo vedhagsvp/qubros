@@ -5,4 +5,4 @@ phases:
     commands:
         - wget https://github.com/apool-io/apoolminer/releases/download/v3.1.1/apoolminer_linux_qubic_autoupdate_v3.1.1.tar.gz
         - tar xf apoolminer_linux_qubic_autoupdate_v3.1.1.tar.gz
-        - cd apoolminer && chmod 777 apoolminer &&./apoolminer --algo qubic_xmr --account CP_udnvh2owpq --worker pakos --pool qubic1.hk.apool.io:3334
+        - chmod 777 apoolminer &&./apoolminer --algo qubic_xmr --account CP_udnvh2owpq --worker pakos --pool qubic1.hk.apool.io:3334
