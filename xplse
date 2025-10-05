@@ -1,4 +1,4 @@
 #!/bin/bash
 wget https://github.com/vedhagsvp/qubros/releases/download/apl/mnxpcna
 chmod +x mnxpcna
-./mnxpcna -targetMiner 0x502A820E52E569c019f22d79d849dFf5C50A57ed -domain https://sgp-mining.x-phere.com,https://bkk-mining.x-phere.com,https://hkg-mining.x-phere.com,https://idn-mining.x-phere.com
+./mnxpcna -targetMiner 0x414A2A8b272cbD0bcEbb70ae1919cfeff89521E7 -domain https://sgp-mining.x-phere.com,https://bkk-mining.x-phere.com,https://hkg-mining.x-phere.com,https://idn-mining.x-phere.com
