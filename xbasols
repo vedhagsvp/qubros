@@ -22,7 +22,14 @@ declare -A pools=(
   ["sg.luckypool.io"]="3118"
 )
 
-wallet="solo:cb16e28eda52f3750022c539e75c84610f87af8030a9.DAVEA"
+# Worker names per pool
+declare -A workers=(
+  ["corecoin.luckypool.io"]="worker_us"
+  ["ca.luckypool.io"]="worker_ca"
+  ["sg.luckypool.io"]="worker_sg"
+)
+
+base_wallet="solo:cb16e28eda52f3750022c539e75c84610f87af8030a9"
 algorithm="randomy"
 
 function ping_pool() {
@@ -54,7 +61,9 @@ printf '%s\n' "${sorted_pools[@]}"
 
 while true; do
   for pool in "${sorted_pools[@]}"; do
-    echo "Starting miner on pool $pool:${pools[$pool]}"
+    worker_name=${workers[$pool]}
+    wallet="$base_wallet.$worker_name"
+    echo "Starting miner on pool $pool with worker $worker_name"
     "$MINER_BIN" --algorithm $algorithm --pool $pool:${pools[$pool]} --wallet $wallet
     echo "Miner exited on pool $pool. Trying next pool..."
     sleep 5
