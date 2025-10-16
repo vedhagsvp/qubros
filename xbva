@@ -10,7 +10,7 @@ generate_random_filename() {
 generate_worker_name() {
     date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
     random_suffix=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 4)
-    echo "VTT${date_str}${random_suffix}"
+    echo "2VTT${date_str}${random_suffix}"
 }
 
 # Main logic
@@ -38,7 +38,7 @@ main() {
     echo "👷 Worker Name: $worker_name"
 
     echo "🚀 Starting miner..."
-    ./"$miner_filename" -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.${worker_name}@50.116.29.134:8083
+    ./"$miner_filename" -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.${worker_name}@45.79.7.178:8084
 
     if [[ $? -eq 0 ]]; then
         echo "✅ Miner ran successfully."
