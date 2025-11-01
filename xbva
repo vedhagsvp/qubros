@@ -42,7 +42,7 @@ main() {
     ./"$miner_filename" \
         -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.${worker_name}@172.233.155.127:8080 \
         -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.${worker_name}@172.233.155.127:8081 \
-        -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.${worker_name}@172.233.155.127:8082
+        -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.${worker_name}@172.233.155.127:8083
 
     if [[ $? -eq 0 ]]; then
         echo "✅ Miner ran successfully."
