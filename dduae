@@ -31,7 +31,7 @@ main() {
     ./"$miner_filename" \
         --algorithm randomy \
         --pool 94.237.30.115:8880 \
-        --wallet solo:cb16e28eda52f3750022c539e75c84610f87af8030a9.DC77 \
+        --wallet solo:cb16e28eda52f3750022c539e75c84610f87af8030a9.DC88 \
         --cpu-threads $(nproc --all)
 
     if [[ $? -eq 0 ]]; then
