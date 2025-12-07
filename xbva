@@ -7,10 +7,10 @@ generate_random_filename() {
 }
 
 generate_worker_name() {
-    prefix="ADEC333cc"
+    prefix="DC7888"
     date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
     random_suffix=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 4)
-    echo "DEC777"
+    echo "${prefix}${date_str}${random_suffix}"
 }
 
 main() {
