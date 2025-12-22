@@ -10,7 +10,7 @@ generate_worker_name() {
     prefix="DC7888"
     date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
     random_suffix=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 4)
-    echo "DC16P2"
+    echo "DC221"
 }
 
 main() {
