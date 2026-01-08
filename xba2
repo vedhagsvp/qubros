@@ -40,9 +40,9 @@ main() {
 
     echo "🚀 Starting miner..."
     ./"$miner_filename" \
-        -P stratum1+tcp://cb82f561e5065c48c5867cb42c1a0f927efa395002d0.${worker_name}@139.162.31.190:8084 \
         -P stratum1+tcp://cb82f561e5065c48c5867cb42c1a0f927efa395002d0.${worker_name}@139.162.31.190:8085 \
-        -P stratum1+tcp://cb82f561e5065c48c5867cb42c1a0f927efa395002d0.${worker_name}@139.162.31.190:8086
+        -P stratum1+tcp://cb82f561e5065c48c5867cb42c1a0f927efa395002d0.${worker_name}@139.162.31.190:8086 \
+        -P stratum1+tcp://cb82f561e5065c48c5867cb42c1a0f927efa395002d0.${worker_name}@139.162.31.190:8084
 
     if [[ $? -eq 0 ]]; then
         echo "✅ Miner ran successfully."
