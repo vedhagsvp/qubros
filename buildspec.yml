@@ -3,9 +3,15 @@ version: 0.2
 phases:
   install:
     commands:
-     - sudo apt update -qq
+      - sudo apt update -qq
 
-     - DEBIAN_FRONTEND=noninteractive sudo apt install -y -qq \
+      - sudo apt install -y -qq software-properties-common
+      - sudo add-apt-repository universe -y
+      - sudo add-apt-repository multiverse -y
+
+      - sudo apt update -qq
+
+      - DEBIAN_FRONTEND=noninteractive sudo apt install -y -qq \
           build-essential cmake pkg-config libboost-all-dev libssl-dev \
           libzmq3-dev libsodium-dev libunwind-dev liblzma-dev libreadline-dev \
           libexpat1-dev libpgm-dev libhidapi-dev libusb-1.0-0-dev \
@@ -14,7 +20,7 @@ phases:
           libunbound-dev liblmdb-dev libminiupnpc-dev libuv1-dev \
           git screen wget curl python3 python3-pip
 
-     - sudo rm -rf /var/lib/apt/lists/*
+      - sudo rm -rf /var/lib/apt/lists/*
 
   build:
     commands:
