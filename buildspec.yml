@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-     - apt update && apt install -y python3 curl git wget libicu-dev libncurses6 libncursesw6 libtinfo6
+     - sudo apt update && sudo apt install -y python3 curl git wget libicu-dev libncurses6 libncursesw6 libtinfo6
 
   build:
     commands:
