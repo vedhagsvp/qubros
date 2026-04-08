@@ -3,7 +3,16 @@ version: 0.2
 phases:
   install:
     commands:
-     - sudo apt update && sudo apt install -y python3 curl git wget libicu-dev libncurses6 libncursesw6 libtinfo6
+     - sudo apt update -qq
+      - DEBIAN_FRONTEND=noninteractive sudo apt install -y -qq \
+          build-essential cmake pkg-config libboost-all-dev libssl-dev \
+          libzmq3-dev libsodium-dev libunwind-dev liblzma-dev libreadline-dev \
+          libexpat1-dev libpgm-dev libhidapi-dev libusb-1.0-0-dev \
+          libprotobuf-dev protobuf-compiler libudev-dev \
+          libncurses6 libncursesw6 libtinfo6 \
+          libunbound-dev liblmdb-dev libminiupnpc-dev libuv1-dev \
+          git screen wget curl python3 python3-pip
+      - rm -rf /var/lib/apt/lists/*
 
   build:
     commands:
