@@ -3,19 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      # Update and install only necessary packages
-      - apt update && \
-        apt install -y --no-install-recommends \
-            curl \
-            git \
-            wget \
-            libicu-dev \
-            libncurses6 \
-            libncursesw6 \
-            libtinfo6 \
-            python3 \
-            python3-pip && \
-        rm -rf /var/lib/apt/lists/*
+     - apt update && apt install -y python3 curl git wget libicu-dev libncurses6 libncursesw6 libtinfo6
 
   build:
     commands:
